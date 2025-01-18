@@ -19,7 +19,7 @@
 To install the SDK, run the following command:
 
 ```bash
-npm install aiola-streaming
+npm install aiola-nodejs-sdk
 ```
 ---
 
