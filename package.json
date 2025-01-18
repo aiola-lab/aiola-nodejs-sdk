@@ -1,0 +1,26 @@
+{
+  "name": "aiola-streaming",
+  "version": "0.1.0",
+  "description": "NodeJS SDK for Aiola Streaming Service",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
+    "recorder": "ts-node examples/recorder_app.ts"
+  },
+  "dependencies": {
+    "node-record-lpcm16": "^1.0.1",
+    "socket.io-client": "^4.8.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.14",
+    "@types/socket.io-client": "^1.4.36",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}

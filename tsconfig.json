@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020"],
+    "declaration": true,
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": ["recorder_app/types", "./node_modules/@types"],
+    "baseUrl": ".",
+    "paths": {
+      "@recorder/*": ["recorder_app/*"]
+    }
+  },
+  "include": ["sdk/**/*", "recorder_app/**/*"],
+  "exclude": ["node_modules", "dist", "test"]
+}
