@@ -16,7 +16,7 @@ const onTranscript = (data: any) => {
 };
 
 const onEvents = (data: any) => {
-  console.log(`Events received:`, data);
+  console.log(`Events received: ${JSON.stringify(data, null, 2)}`);
 };
 
 const onError = (data: any) => {
