@@ -1,5 +1,5 @@
-import { AiolaStreamingClient } from "../sdk/client";
-import { StreamingConfig } from "../sdk/models/config";
+import { AiolaStreamingClient } from "../aiola_streaming_sdk/client";
+import { StreamingConfig } from "../aiola_streaming_sdk/models/config";
 import { RecorderApp } from "../recorder_app";
 
 

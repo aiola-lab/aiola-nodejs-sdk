@@ -16,6 +16,6 @@
       "@recorder/*": ["recorder_app/*"]
     }
   },
-  "include": ["sdk/**/*", "recorder_app/**/*"],
+  "include": ["aiola_streaming_sdk/**/*", "recorder_app/**/*"],
   "exclude": ["node_modules", "dist", "test"]
 }
