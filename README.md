@@ -1,4 +1,4 @@
-# aiOla JavaScript SDKs
+# aiOla NodeJS SDKs
 
 Welcome to the **aiOla NodeJS SDKs** repository. This repository contains examples and documentation for various SDKs that integrate with aiOla's Text-to-Speech (TTS) and streaming services.
 
