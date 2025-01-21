@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 .DS_Store
+synthesized_audio.wav
+streamed_audio.wav
