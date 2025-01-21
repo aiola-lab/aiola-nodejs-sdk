@@ -99,7 +99,7 @@ async function main() {
         endpoint: `<endpoint>`,  // The URL of the Aiola server
         authType: "Bearer",  // Supported authentication for the API
         authCredentials: {
-        token: `<your_bearer_token_here>` // Bearer Token key, obtained upon registration with Aiola
+        token: `<your_bearer_token_here>` // The Bearer Token, obtained upon registration with Aiola
         },
         flowId: `<flow_id_here>`, // One of the IDs from the flows created for the user
         namespace: '/events', // Namespace for subscription: /transcript (for transcription) or /events (for transcription + LLM solution)
@@ -173,7 +173,7 @@ main().catch(console.error);
 1.	Endpoint:
     -	This is the base URL of the Aiola server where the client will connect.
 2.	Authentication:
-    -	The SDK uses x-api-key for authentication. The API key must be obtained during registration with Aiola.
+    -	The SDK uses Bearer for authentication. The Bearer Token must be obtained during registration with Aiola.
 3.	Namespace:
     -	Determines the type of data you want to subscribe to:
     -	`/transcript`: For transcription data only.
