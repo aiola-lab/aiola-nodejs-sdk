@@ -52,7 +52,7 @@ async function main() {
       onEvents,
       onConnect: () => {
         console.log('Connection established');
-        client.set_kws(['aiola', 'ngnix']);
+        client.set_kws([]);
       },
       onDisconnect
     }

@@ -1,7 +1,7 @@
 import { AiOlaTTSClient } from '../../aiola_tts_sdk';
 
 async function main() {
-  const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your AiOla TTS API base URL
+  const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your AiOla TTS API base URL {_BASE_URL}/api/tts
   const ttsClient = new AiOlaTTSClient(baseUrl);
 
   try {

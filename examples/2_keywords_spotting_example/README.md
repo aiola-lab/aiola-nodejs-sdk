@@ -22,6 +22,22 @@ To install the SDK, run the following command:
 ```bash
 npm install aiola-nodejs-sdk
 ```
+
+### Local Installation
+
+To install and run the SDK locally:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/aiola-lab/aiola-nodejs-sdk.git
+cd aiola-nodejs-sdk
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
 ---
 
 ## Requirements

@@ -1,13 +1,13 @@
 import { AiOlaTTSClient } from '../../aiola_tts_sdk';
 
 async function main() {
-  const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your AiOla TTS API base URL
+  const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your AiOla TTS API base URL {_BASE_URL}/api/tts
   const ttsClient = new AiOlaTTSClient(baseUrl);
 
   try {
     // Example: Stream Speech
     console.log('Streaming speech...');
-    const streamBlob = await ttsClient.synthesizeStream({ text: 'Streaming aiOla speech', voice: 'af_bella' });
+    const streamBlob = await ttsClient.synthesizeStream({ text: 'Streaming speech', voice: 'af_bella' });
     console.log('Streaming successful. Saving streamed audio...');
 
     // Save the streamed audio to a file
