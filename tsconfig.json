@@ -10,12 +10,14 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "typeRoots": ["recorder_app/types", "./node_modules/@types"],
+    "typeRoots": ["recorder_app/types", "examples/1_transcript_events_example/node_modules/@types",
+  "examples/2_keywords_spotting_example/node_modules/@types"],
     "baseUrl": ".",
     "paths": {
       "@recorder/*": ["recorder_app/*"]
     }
   },
   "include": ["aiola_streaming_sdk/**/*", "recorder_app/**/*"],
-  "exclude": ["node_modules", "dist", "test"]
+  "exclude": ["examples/1_transcript_events_example/node_modules", 
+  "examples/2_keywords_spotting_example/node_modules", "dist", "test"]
 }

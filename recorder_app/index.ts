@@ -1,6 +1,6 @@
-import { SoxRecording } from "../recorder_app/types/sox";
-import {AudioConfig, audioConfigSchema} from "../recorder_app/models/audio"
-import { AiolaStreamingError } from "../recorder_app/exceptions";
+import { SoxRecording } from "./types/sox";
+import {AudioConfig, audioConfigSchema} from "./models/audio"
+import { AiolaStreamingError } from "./exceptions";
 import { AiolaStreamingClient } from "../aiola_streaming_sdk/client";
 
 

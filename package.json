@@ -10,7 +10,8 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "recorder": "ts-node examples/recorder_app.ts"
+    "transcript_events_example": "ts-node examples/1_transcript_events_example/recorder_app.ts",
+    "keywords_spotting_example": "ts-node examples/2_keywords_spotting_example/recorder_app.ts"
   },
   "dependencies": {
     "node-record-lpcm16": "^1.0.1",

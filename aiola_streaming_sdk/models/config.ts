@@ -12,7 +12,7 @@ export const streamingConfigSchema = z.object({
   langCode: z.string().default('en_US'),
   timeZone: z.string().default('UTC'),
   namespace: z.string().default('/events'),
-  transports: z.array(z.string()).default(['polling']),
+  transports: z.string().default('polling'),
   
   // Nested configurations
   callbacks: callbacksSchema.default({})

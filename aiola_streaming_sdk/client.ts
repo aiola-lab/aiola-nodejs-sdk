@@ -23,9 +23,13 @@ export class AiolaStreamingClient {
     });
     
     const _endpoint = `${this.config.endpoint}${this.config.namespace}?${params}`;
+    console.log(_endpoint);
+    console.log(getAuthHeaders(this.config.authType, this.config.authCredentials).headers);
     
+    const _transports = this.config.transports == 'polling'?['polling']: this.config.transports == 'websocket'?['polling', 'websocket']:['polling', 'websocket'];
+
     this.sio = io(_endpoint, {
-      transports: this.config.transports || ['websocket'],
+      transports: _transports,
       path: '/api/voice-streaming/socket.io',
       transportOptions: {
         polling: {
@@ -85,6 +89,32 @@ export class AiolaStreamingClient {
         ack({ status: 'received' });
       }
     });
+  }
+
+  public set_kws(keywords: string[]): void {
+    if (!this.sio.connected) {
+      console.error('Socket is not connected. Unable to send keywords.');
+      this.config.callbacks?.onError?.({ message: 'Socket not connected.' });
+      return;
+    }
+  
+    try {
+      // Emit the "set_keywords" event with the keywords serialized to JSON
+      const binaryData = JSON.stringify(keywords); // Serialize the list to JSON
+
+      console.log('set_keywords: ',binaryData);
+      
+      this.sio.emit('set_keywords', binaryData, this.config.namespace);
+    } catch (error: unknown) {
+      // Narrow down 'error' to ensure it's an instance of Error
+      if (error instanceof Error) {
+        console.error('Error emitting keywords:', error.message);
+        this.config.callbacks?.onError?.({ message: error.message });
+      } else {
+        console.error('Unknown error:', error);
+        this.config.callbacks?.onError?.({ message: 'An unknown error occurred.' });
+      }
+    }
   }
 
   public writableStream = new WritableStream<AudioData>({

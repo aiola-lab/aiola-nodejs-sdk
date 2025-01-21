@@ -95,15 +95,15 @@ const onStreamError = (data: any) => {
 async function main() {
 
 // Define the SDK configuration
-    const config: StreamingConfig = {
+  const config: StreamingConfig = {
         endpoint: `<endpoint>`,  // The URL of the Aiola server
-        authType: "x-api-key",  // Supported authentication for the API
+        authType: "Bearer",  // Supported authentication for the API
         authCredentials: {
-        api_key: `<your_api_key_here>` // API key, obtained upon registration with Aiola
+        token: `<your_bearer_token_here>` // Bearer Token key, obtained upon registration with Aiola
         },
         flowId: `<flow_id_here>`, // One of the IDs from the flows created for the user
         namespace: '/events', // Namespace for subscription: /transcript (for transcription) or /events (for transcription + LLM solution)
-        transports: ['polling'], // Communication method: ['websocket'] for L4 or ['polling'] for L7
+        transports: 'polling', // Communication method: 'websocket' for L4 or 'polling' for L7
         executionId: '1', // Unique identifier to trace execution
         langCode: 'en_US', // Language code for transcription
         timeZone: 'UTC', // Time zone for timestamp alignment
@@ -143,9 +143,9 @@ main().catch(console.error);
 | Parameter	                  | Type	     | Description                                                                                                                          |
 |-----------------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | `endpoint`	              | `string`     | The base URL of the Aiola server                                                                                                     |
-| `authType`	              | `string`     |  The authentication type, currently supporting "x-api-key".                                                                          |
+| `authType`	              | `string`     |  The authentication type, currently supporting "Bearer".                                                                          |
 | `authCredentials` 	      | `object`     |  An object containing credentials required for authentication.                                                                       |
-| `authCredentials.api_key`   |	`string`     |  The API key, obtained during registration with Aiola.                                                                               |
+| `authCredentials.token`   |	`string`     |  The Bearer token, obtained during registration with Aiola.                                                                               |
 | `flowId`	                  |	`string`     |  A unique identifier for the specific flow created for the user.                                                                     |
 | `namespace`	              |	`string`     |  The namespace to subscribe to. Use /transcript for transcription or /events for transcription + LLM integration.                    |
 | `transports`	              |	`string[]`   |  The communication method. Use ['websocket'] for Layer 4 (faster, low-level) or ['polling'] for Layer 7 (supports HTTP2, WAF, etc.). |
@@ -180,8 +180,8 @@ main().catch(console.error);
     -	`/events`: For transcription combined with LLM solution events.
 4.	Transport Methods:
     -	Choose between:
-        -	`['websocket']`: For **Layer 4** communication with lower latency.
-        -	`['polling']`: For **Layer 7** communication, useful for environments with firewalls or HTTP2 support.
+        -	`'websocket'`: For **Layer 4** communication with lower latency.
+        -	`'polling'`: For **Layer 7** communication, useful for environments with firewalls or HTTP2 support.
 5.	Callbacks:
     -	These are functions provided by the user to handle various types of events or data received during the streaming session.
 6.	Execution ID:
