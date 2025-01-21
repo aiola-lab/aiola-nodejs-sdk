@@ -31,16 +31,16 @@ const onStreamError = (data: any) => {
 
 async function main() {
 
-  const bearer_token = 'YOUR_BEARER_TOKEN'
+  const bearer_token = '<YOUR_BEARER_TOKEN>'
 
   // Define the SDK configurations
   const config: StreamingConfig = {
-    endpoint:  'https://tesla.internal.aiola.ai',
+    endpoint:  '<YOUR_API_BASE_URL>',
     authType: 'Bearer',
     authCredentials: {
       token: bearer_token
     },
-    flowId: 'f38d5001-3b42-405f-b4e3-6caddce456c3',
+    flowId: '<YOUR_FLOW_ID>',
     namespace: '/events',
     transports: 'pooling',
     executionId: '1009',

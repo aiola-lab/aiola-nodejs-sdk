@@ -1,6 +1,6 @@
 # Aiola Streaming SDK
 
-**Version**: `0.1.0`  
+**Version**: `0.1.0`
 **Description**: A Node.js SDK for interacting with the Aiola Streaming Service, featuring real-time audio streaming and processing capabilities.
 
 ---
@@ -107,7 +107,7 @@ async function main() {
         onEvents,           // Callback for event-related data
         onConnect: () => {
         console.log('Connection established');
-          client.set_kws(['aiola', 'ngnix']); // Setting keywords
+          client.set_kws(['Aiola', 'ngnix']); // Setting keywords
         },
         onDisconnect: (duration: number, totalAudio: number) => {
           console.log(`Connection closed. Duration: ${duration}ms, Total audio: ${totalAudio}ms`);

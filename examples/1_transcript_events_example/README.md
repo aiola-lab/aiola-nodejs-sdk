@@ -123,10 +123,10 @@ async function main() {
 
 // Define the SDK configuration
   const config: StreamingConfig = {
-        endpoint: `<endpoint>`,  // The URL of the Aiola server
+        endpoint: `<YOUR_API_BASE_URL>`,  // The URL of the Aiola server
         authType: "Bearer",  // Supported authentication for the API
         authCredentials: {
-        token: `<your_bearer_token_here>` // The Bearer Token, obtained upon registration with Aiola
+        token: `<YOUR_BEARER_TOKEN>` // The Bearer Token, obtained upon registration with Aiola
         },
         flowId: `<flow_id_here>`, // One of the IDs from the flows created for the user
         namespace: '/events', // Namespace for subscription: /transcript (for transcription) or /events (for transcription + LLM solution)

@@ -29,7 +29,7 @@ npm install
 ```
 2.	Update the baseUrl and ensure the API endpoint is correct:
    ```javascript
-   const baseUrl = 'https://tesla.internal.aiola.ai/api/tts'; // Replace with your API base URL
+   const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your API base URL
    ```
 
 ## Usage
@@ -49,13 +49,13 @@ npm install
 ```javascript
 import { AiOlaTTSClient } from '../../aiola_tts_sdk';
 
-const baseUrl = 'https://tesla.internal.aiola.ai/api/tts';
+const baseUrl = '<YOUR_API_BASE_URL>';
 const ttsClient = new AiOlaTTSClient(baseUrl);
 ```
 
 ### Synthesize Speech
 ```javascript
-const text = 'Hello, this is a test of the aiOla TTS synthesis feature.';
+const text = 'Hello, this is a test of the Aiola TTS synthesis feature.';
 const audioBlob = await ttsClient.synthesize({ text: text, voice: 'af_bella' });
 ```
 

@@ -51,10 +51,20 @@ This example shows how to stream text-to-speech in real-time, enabling audio pla
    cd aiola-nodejs-sdk
    ```
 
-2. Install dependencies and TypeScript definitions:
+2. Install dependencies:
    ```bash
    npm install
-   npm install --save-dev @types/node
    ```
 
-3. Follow the instructions in the individual example directories for specific use cases.
+3. Add your `<YOUR_API_BASE_URL>` and `<YOUR_BEARER_TOKEN>` and `<YOUR_FLOW_ID>` to the example files.
+
+4. Run the example:
+   ```bash
+   npm run synthesizeSpeech_example
+
+   npm run streamSpeech_example
+
+   npm run transcript_events_example
+
+   npm run keywords_spotting_example
+   ```
