@@ -1,4 +1,4 @@
-import { AiolaStreamingClient } from "../../aiola_streaming_sdk/client" 
+import { AiolaStreamingClient } from "../../aiola_streaming_sdk/client"
 import { StreamingConfig } from "../../aiola_streaming_sdk/models/config";
 import { RecorderApp } from "../../recorder_app";
 
@@ -31,7 +31,7 @@ const onStreamError = (data: any) => {
 
 async function main() {
 
-  const bearer_token = 'BdGVzbGFpbGFubXVzawodGVzbGFpbGFubXVzawo=pbGFubXVz'
+  const bearer_token = 'YOUR_BEARER_TOKEN'
 
   // Define the SDK configurations
   const config: StreamingConfig = {

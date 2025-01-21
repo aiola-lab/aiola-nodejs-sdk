@@ -126,7 +126,7 @@ Enable debugging with the environment variable debug=record.`,
     return this.soxStream?.isPaused()
   }
 
-  stream(): ReadableStream<Buffer> {
+  stream(): ReadableStream<Uint8Array> {
     assert(this?.soxStream, "Recording not yet started")
     return Readable.toWeb(this?.soxStream)
   }

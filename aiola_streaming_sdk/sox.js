@@ -97,7 +97,7 @@ Enable debugging with the environment variable debug=record.`,
   stream() {
     assert(this?.soxStream, "Recording not yet started")
     const readableStream = Readable.toWeb(this?.soxStream)
-    
+
     // Create a TransformStream to chunk the data
     const transformer = new TransformStream({
       transform(chunk, controller) {

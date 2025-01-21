@@ -1,6 +1,6 @@
 # Aiola Streaming SDK
 
-**Version**: `0.1.0`  
+**Version**: `0.1.0`
 **Description**: A Node.js SDK for interacting with the Aiola Streaming Service, featuring real-time audio streaming and processing capabilities.
 
 ---
@@ -21,6 +21,33 @@ To install the SDK, run the following command:
 ```bash
 npm install aiola-nodejs-sdk
 ```
+
+### Local Installation
+
+To install and run the SDK locally:
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-org/aiola-nodejs-sdk.git
+cd aiola-nodejs-sdk
+```
+
+2. Install dependencies:
+```bash
+npm install
+npm install --save-dev @types/node
+```
+
+3. Build the project:
+```bash
+npm run build
+```
+
+4. (Optional) Run tests:
+```bash
+npm test
+```
+
 ---
 
 ## Requirements
@@ -36,7 +63,7 @@ npm install aiola-nodejs-sdk
 ## What in the Project
 
 - **`recorder_app`**: An example of audio streaming configuration and recording logic, which using aiola SDK.
-- **`sdk`**: Contains the core logic for interacting with Aiola’s streaming service.
+- **`sdk`**: Contains the core logic for interacting with Aiola's streaming service.
 
 ---
 

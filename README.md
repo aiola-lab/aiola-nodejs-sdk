@@ -50,4 +50,11 @@ This example shows how to stream text-to-speech in real-time, enabling audio pla
    git clone https://github.com/aiola-lab/aiola-nodejs-sdk.git
    cd aiola-nodejs-sdk
    ```
-2.	Follow the instructions in the individual example directories for specific use cases.
+
+2. Install dependencies and TypeScript definitions:
+   ```bash
+   npm install
+   npm install --save-dev @types/node
+   ```
+
+3. Follow the instructions in the individual example directories for specific use cases.
