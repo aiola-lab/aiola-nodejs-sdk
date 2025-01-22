@@ -54,6 +54,7 @@ export class AiOlaTTSClient {
       },
       body: new URLSearchParams(data as Record<string, string>),
     });
+    
 
     if (response.ok) {
       if (response.headers.get('Content-Type')?.includes('audio/wav')) {
@@ -62,8 +63,7 @@ export class AiOlaTTSClient {
       return (await response.json()) as ErrorResponse;
     }
 
-    const error = (await response.json()) as ErrorResponse;
-    throw new Error(error.detail || `Request failed with status ${response.status}`);
+    throw new Error(`Request failed with status ${response.status}`);
   }
 
   /**
