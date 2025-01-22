@@ -63,7 +63,8 @@ cd aiola-nodejs-sdk
 import { AiOlaTTSClient } from '../../aiola_tts_sdk';
 
 const baseUrl = '<YOUR_API_BASE_URL>';
-const ttsClient = new AiOlaTTSClient(baseUrl);
+const bearerToken = '<YOUR_BEARER_TOKEN>';
+const ttsClient = new AiOlaTTSClient(baseUrl, bearerToken);
 ```
 
 ### Synthesize Speech

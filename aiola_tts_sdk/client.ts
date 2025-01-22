@@ -22,15 +22,21 @@ type ErrorResponse = {
  */
 export class AiOlaTTSClient {
   private readonly baseUrl: string;
+  private readonly bearerToken: string;
 
   /**
    * @param baseUrl - The base URL for the aiOla TTS API.
+   * @param bearerToken - The Bearer token for authentication.
    */
-  constructor(baseUrl: string) {
+  constructor(baseUrl: string, bearerToken: string) {
     if (!baseUrl) {
       throw new Error('baseUrl is required');
     }
+    if (!bearerToken) {
+      throw new Error('bearerToken is required');
+    }
     this.baseUrl = baseUrl;
+    this.bearerToken = bearerToken;
   }
 
   /**
@@ -44,21 +50,22 @@ export class AiOlaTTSClient {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': `Bearer ${this.bearerToken}`, // Added Authorization header
       },
       body: new URLSearchParams(data as Record<string, string>),
     });
-  
+
     if (response.ok) {
       if (response.headers.get('Content-Type')?.includes('audio/wav')) {
         return await response.blob(); // Will now be typed as FetchBlob
       }
       return (await response.json()) as ErrorResponse;
     }
-  
+
     const error = (await response.json()) as ErrorResponse;
     throw new Error(error.detail || `Request failed with status ${response.status}`);
   }
-  
+
   /**
    * Synthesize Speech
    * Converts text to speech and retrieves the audio file.
