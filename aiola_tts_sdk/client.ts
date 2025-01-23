@@ -6,7 +6,7 @@ import { AudioFormat, convertAudioFormat } from './audio-converter';
  */
 type SynthesizeRequest = {
   text: string;
-  voice?: string;
+  voice: 'af_bella' | 'af_nicole' | 'af_sarah' | 'af_sky' | 'am_adam' | 'am_michael' | 'bf_emma' | 'bf_isabella' | 'bm_george' | 'bm_lewis';
 };
 
 type SynthesizeResponse = Blob;
