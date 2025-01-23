@@ -1,4 +1,4 @@
-import fetch, { Blob as FetchBlob } from 'node-fetch';
+import fetch, { Blob } from 'node-fetch';
 import { AudioFormat, convertAudioFormat } from './audio-converter';
 
 /**
@@ -38,8 +38,8 @@ export class AiOlaTTSClient {
     if (!bearerToken) {
       throw new Error('bearerToken is required');
     }
-    if (!['LINEAR16', 'MULAW', 'PCM'].includes(audioFormat)) {
-      throw new Error('audioFormat must be one of: LINEAR16, MULAW, PCM');
+    if (!['LINEAR16', 'PCM'].includes(audioFormat)) {
+      throw new Error('audioFormat must be one of: LINEAR16, PCM');
     }
     this.baseUrl = baseUrl;
     this.bearerToken = bearerToken;
@@ -52,7 +52,7 @@ export class AiOlaTTSClient {
    * @param data - The payload for the POST request.
    * @returns A Promise resolving to a Blob for audio data or throwing an error.
    */
-  private async postRequest(endpoint: string, data: SynthesizeRequest): Promise<FetchBlob | ErrorResponse> {
+  private async postRequest(endpoint: string, data: SynthesizeRequest): Promise<Blob | ErrorResponse> {
     const response = await fetch(`${this.baseUrl}${endpoint}`, {
       method: 'POST',
       headers: {
@@ -65,7 +65,7 @@ export class AiOlaTTSClient {
     if (response.ok) {
       if (response.headers.get('Content-Type')?.includes('audio/wav')) {
         const audioBlob = await response.blob();
-        return await convertAudioFormat(audioBlob, this.audioFormat);
+        return await convertAudioFormat(audioBlob as globalThis.Blob, this.audioFormat);
       }
       return (await response.json()) as ErrorResponse;
     }

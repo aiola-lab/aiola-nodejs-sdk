@@ -1,8 +1,8 @@
 import { AiOlaTTSClient } from '../../aiola_tts_sdk';
 
 async function main() {
-  const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your AiOla TTS API base URL (e.g., https://api.aiola.com/tts)
-  const bearerToken = '<YOUR_BEARER_TOKEN>'; // Replace with your Bearer token
+  const baseUrl = 'https://tesla-testing.internal.aiola.ai/api/tts'; // Replace with your AiOla TTS API base URL (e.g., https://api.aiola.com/tts)
+  const bearerToken = 'd1c895ae10ab4a27a0ac3f8860dad306'; // Replace with your Bearer token
 
   // Instantiate the AiOlaTTSClient with the base URL and Bearer token
   const ttsClient = new AiOlaTTSClient(baseUrl, bearerToken);
