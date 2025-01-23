@@ -13,7 +13,8 @@
     "transcript_events_example": "ts-node examples/1_transcript_events_example/recorder_app.ts",
     "keywords_spotting_example": "ts-node examples/2_keywords_spotting_example/recorder_app.ts",
     "synthesizeSpeech_example": "ts-node examples/3_synthesizeSpeech_example/index.ts",
-    "streamSpeech_example": "ts-node examples/4_streamSpeech_example/index.ts"
+    "streamSpeech_example": "ts-node examples/4_streamSpeech_example/index.ts",
+    "streamSpeechChunks_example": "ts-node examples/5_streamSpeechChunks_example/index.ts"
   },
   "dependencies": {
     "node-fetch": "^2.7.0",

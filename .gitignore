@@ -132,3 +132,4 @@ dist
 .DS_Store
 synthesized_audio.wav
 streamed_audio.wav
+streamed_chunks_audio.wav
