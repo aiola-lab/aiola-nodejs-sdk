@@ -1,4 +1,5 @@
 import fetch, { Blob as FetchBlob } from 'node-fetch';
+import { AudioFormat, convertAudioFormat } from './audio-converter';
 
 /**
  * Types for request and response handling
@@ -23,20 +24,26 @@ type ErrorResponse = {
 export class AiOlaTTSClient {
   private readonly baseUrl: string;
   private readonly bearerToken: string;
+  private readonly audioFormat: AudioFormat;
 
   /**
    * @param baseUrl - The base URL for the aiOla TTS API.
    * @param bearerToken - The Bearer token for authentication.
+   * @param audioFormat - The desired audio format (LINEAR16, MULAW, or PCM)
    */
-  constructor(baseUrl: string, bearerToken: string) {
+  constructor(baseUrl: string, bearerToken: string, audioFormat: AudioFormat = 'LINEAR16') {
     if (!baseUrl) {
       throw new Error('baseUrl is required');
     }
     if (!bearerToken) {
       throw new Error('bearerToken is required');
     }
+    if (!['LINEAR16', 'MULAW', 'PCM'].includes(audioFormat)) {
+      throw new Error('audioFormat must be one of: LINEAR16, MULAW, PCM');
+    }
     this.baseUrl = baseUrl;
     this.bearerToken = bearerToken;
+    this.audioFormat = audioFormat;
   }
 
   /**
@@ -50,15 +57,15 @@ export class AiOlaTTSClient {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization': `Bearer ${this.bearerToken}`, // Added Authorization header
+        'Authorization': `Bearer ${this.bearerToken}`,
       },
       body: new URLSearchParams(data as Record<string, string>),
     });
-    
 
     if (response.ok) {
       if (response.headers.get('Content-Type')?.includes('audio/wav')) {
-        return await response.blob(); // Will now be typed as FetchBlob
+        const audioBlob = await response.blob();
+        return await convertAudioFormat(audioBlob, this.audioFormat);
       }
       return (await response.json()) as ErrorResponse;
     }
