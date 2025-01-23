@@ -1,11 +1,12 @@
 import { AiOlaTTSClient } from '../../aiola_tts_sdk';
+import { AudioFormat } from '../../aiola_tts_sdk/audio-converter';
 
 async function main() {
   const baseUrl = '<YOUR_API_BASE_URL>'; // Replace with your AiOla TTS API base URL (e.g., https://api.aiola.com/tts)
   const bearerToken = '<YOUR_BEARER_TOKEN>'; // Replace with your Bearer token
-
+  const audioFormat: AudioFormat = 'LINEAR16'; // 'LINEAR16' or 'PCM'
   // Instantiate the AiOlaTTSClient with the base URL and Bearer token
-  const ttsClient = new AiOlaTTSClient(baseUrl, bearerToken);
+  const ttsClient = new AiOlaTTSClient(baseUrl, bearerToken, audioFormat);
 
   try {
     // Example: Stream Speech
